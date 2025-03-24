@@ -46,12 +46,12 @@ class renderView(MethodView):
     def get(self):
         nombre = request.args.get('name')
         diccionario = {
-            'Nombre': 'Javier',
+            'Nombre': nombre,
             'Apellido1': 'Villena',
             'Apellido2': 'Fernández',
             'Dirección': 'Calle tal'
         }
-        return render_template('index.html', name=nombre, **diccionario)
+        return render_template('index.html', **diccionario)
     def post(self):
         return "Hola Mundo!"
     def put(self):
