@@ -11,6 +11,17 @@
     <h2>
         Bienvenido, {{ name }}
     </h2>
+    <h3>Print de un Dic</h3>
+    <table>
+        <tr><th>Clave</th><th>Valor</th></tr>
+        {% for x in diccionario %}
+            <tr>
+                <td>{{ x }}</td>
+                <td>{{ diccionario[x] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
 </body>
 
 </html>

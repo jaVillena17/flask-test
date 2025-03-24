@@ -45,7 +45,16 @@ def index():
 class renderView(MethodView):
     def get(self):
         nombre = request.args.get('name')
-        return render_template('index.html', name=nombre)
+        diccionario = {
+            'Clave1': 'Valor1',
+            'Clave2': 'Valor2',
+            'Clave3': 'Valor3',
+            'Clave4': 'Valor4',
+            'Clave5': 'Valor5',
+            'Clave6': 'Valor6',
+            'Clave7': 'Valor7',
+        }
+        return render_template('index.html', name=nombre, diccionario=diccionario)
     def post(self):
         return "Hola Mundo!"
     def put(self):
