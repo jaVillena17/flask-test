@@ -45,14 +45,18 @@ def index():
 class renderView(MethodView):
     def get(self):
         nombre = request.args.get('name')
+
+        lista = ["Patata", "Tomate", "Lechuga", "Pimiento", "Habichuela", "Manzana", "Brocoli"]
+
         diccionario = {
             'Nombre': nombre,
             'Apellido1': 'Villena',
             'Apellido2': 'Fernández',
-            'Dirección': 'Calle tal'
+            'Dirección': 'Calle tal',
+            'Compra': lista
         }
 
-        lista = ["Patata", "Tomate", "Lechuga", "Pimiento", "Habichuela", "Manzana", "Brocoli"]
 
-        return render_template('index.html', **diccionario, lista=lista)
+
+        return render_template('index.html', **diccionario)
 app.add_url_rule('/render', view_func=renderView.as_view('render'))
