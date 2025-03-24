@@ -9,12 +9,7 @@ def helloWorld():
 class HelloView(MethodView):
     def get(self):
         return "Hola Mundo!"
-    def post(self):
-        return "Hola Mundo!"
-    def put(self):
-        return "Hola Mundo!"
-    def delete(self):
-        return "Has borrado el Mundo! POR FIN!"
+
 
 app.add_url_rule('/hello', view_func=HelloView.as_view('hello'))
 
@@ -27,12 +22,6 @@ class nameView(MethodView):
     def get(self):
         name = request.args.get('name')
         return "Bienvenido, " + name
-    def post(self):
-        return "Hola Mundo!"
-    def put(self):
-        return "Hola Mundo!"
-    def delete(self):
-        return "Te has borrado! POR FIN!"
 
 app.add_url_rule('/name', view_func=nameView.as_view('name'))
 
@@ -48,16 +37,17 @@ class renderView(MethodView):
 
         lista = ["Patata", "Tomate", "Lechuga", "Pimiento", "Habichuela", "Manzana", "Brocoli"]
 
+        palabra_a_buscar = request.args.get('search')
+
         diccionario = {
             'Nombre': nombre,
             'Apellido1': 'Villena',
             'Apellido2': 'Fernández',
             'Dirección': 'Calle tal',
             'Compra': lista,
-            'dic' : {'telefono':'6634653456'}
+            'dic' : {'telefono':'6634653456'},
+            'search': palabra_a_buscar in lista
         }
-
-
 
         return render_template('index.html', **diccionario)
 app.add_url_rule('/render', view_func=renderView.as_view('render'))

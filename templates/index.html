@@ -22,9 +22,27 @@
     {% endfor %}
 
     <p>
-        {% for x in dic %}
-        Clave: {{ x }} Valor: {{ dic[x] }}
+        {% for x,y in dic.items() %}
+            Clave: {{ x }} Valor: {{ y }}
         {% endfor %}
+    </p>
+
+    <p>
+        Desde python: <br>
+        Está la palabra: {{ request.args.get('search') }} en la lista?: {{ "Si" if search else "No"}}
+    </p>
+
+    <p>
+        Solo desde el HTML
+        <br>
+        {% if  request.args.get('search') in Compra %}
+            La palabra seleccionada está en la lista
+        {% endif %}
+
+        {% if  not(request.args.get('search') in Compra) %}
+            La palabra seleccionada no está en la lista
+        {% endif %}
+
     </p>
 </body>
 
