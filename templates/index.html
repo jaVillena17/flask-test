@@ -37,9 +37,7 @@
         <br>
         {% if  request.args.get('search') in Compra %}
             La palabra seleccionada está en la lista
-        {% endif %}
-
-        {% if  not(request.args.get('search') in Compra) %}
+        {% else %}
             La palabra seleccionada no está en la lista
         {% endif %}
 
