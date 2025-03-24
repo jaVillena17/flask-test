@@ -51,11 +51,8 @@ class renderView(MethodView):
             'Apellido2': 'Fernández',
             'Dirección': 'Calle tal'
         }
-        return render_template('index.html', **diccionario)
-    def post(self):
-        return "Hola Mundo!"
-    def put(self):
-        return "Hola Mundo!"
-    def delete(self):
-        return "Te has borrado! POR FIN!"
+
+        lista = ["Patata", "Tomate", "Lechuga", "Pimiento", "Habichuela", "Manzana", "Brocoli"]
+
+        return render_template('index.html', **diccionario, lista=lista)
 app.add_url_rule('/render', view_func=renderView.as_view('render'))
