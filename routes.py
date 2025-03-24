@@ -53,7 +53,8 @@ class renderView(MethodView):
             'Apellido1': 'Villena',
             'Apellido2': 'Fernández',
             'Dirección': 'Calle tal',
-            'Compra': lista
+            'Compra': lista,
+            'dic' : {'telefono':'6634653456'}
         }
 
 

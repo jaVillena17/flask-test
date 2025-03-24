@@ -21,7 +21,11 @@
         <p>{{ variable }}</p>
     {% endfor %}
 
-
+    <p>
+        {% for x in dic %}
+        Clave: {{ x }} Valor: {{ dic[x] }}
+        {% endfor %}
+    </p>
 </body>
 
 </html>
